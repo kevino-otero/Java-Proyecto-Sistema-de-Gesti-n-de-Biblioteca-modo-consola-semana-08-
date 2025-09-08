@@ -27,3 +27,4 @@ public class Usuario {
         return id > 0 && nombre != null && identificacion != null;
     }
 }
+ 

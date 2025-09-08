@@ -14,13 +14,16 @@ public class Main {
     public static final String MORADO = "\u001B[35m";
     public static final String CIAN = "\u001B[36m";
 
+    // Versión de la app
+    public static final String VERSION = "v1.0.1";
+
     // Instancia de la clase Biblioteca y Scanner para la entrada del usuario
     private static final Biblioteca b = new Biblioteca();
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         // Mensaje de bienvenida con efecto de escritura
-        escribirLento(AZUL + "=== Sistema de Gestión de Biblioteca ===" + RESET);
+        escribirLento(AZUL + "=== Sistema de Gestión de Biblioteca " + VERSION + " ===" + RESET);
         escribirLento(CIAN + "Iniciando la aplicación..." + RESET);
 
         // Intenta cargar los datos al inicio del programa
@@ -36,7 +39,13 @@ public class Main {
             System.out.print(AMARILLO + "Elige una opción: " + RESET);
 
             try {
-                int op = Integer.parseInt(sc.nextLine().trim());
+                String entrada = sc.nextLine().trim();
+                if (entrada.equalsIgnoreCase("q")) {
+                    escribirLento(AZUL + "Saliendo del programa. ¡Hasta pronto!" + RESET);
+                    return;
+                }
+
+                int op = Integer.parseInt(entrada);
 
                 // Estructura de control para ejecutar la opción elegida
                 switch (op) {
@@ -81,7 +90,7 @@ public class Main {
         escribirLento("8. Listar por disponibilidad");
         escribirLento("9. Guardar datos");
         escribirLento("10. Cargar datos");
-        escribirLento("0. Salir" + RESET);
+        escribirLento("0. Salir (o Q)" + RESET);
         escribirLento(AMARILLO + "----------------------------------------" + RESET);
     }
 
