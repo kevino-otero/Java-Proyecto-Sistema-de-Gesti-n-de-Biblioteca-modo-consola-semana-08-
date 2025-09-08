@@ -25,6 +25,9 @@ public class Biblioteca {
         l.setDisponible(true);
         System.out.println("Devolución registrada.");
     }
+
+    // -- Sorteo de los libros por sus caracteristicas --
+
     public void listarLibros() {
         if (libros.isEmpty()) { System.out.println("No hay libros."); return; }
         libros.forEach(System.out::println);
